@@ -1,10 +1,12 @@
 # Decrypting and Encrypting Big Ugly Thing Transforming Saves
 
+![DEBUTTS screenshot](ui/screenshot.png "DEBUTTS Screenshot")
+
+## Welcome to DEBUTTS!
+
 This app will decode save files from games made in the Godot save engine encrypted with its in-engine password-based function. It currently only works with games that save data in JSON format. You can then edit the save data inside the app, or in a separate text editor of your choice before encrypting the save file for use in your game.
 
 You will need to find the password your game uses for encryption on your own; this may or may not entail reverse-engineering the game or extracting the package file, and may not may not be against the license your game is distributed under. Please do your own research regarding what is permissible in your jurisdiction!
-
-![DEBUTTS screenshot](ui/screenshot.png "DEBUTTS Screenshot")
 
 
 ## Installation
