@@ -10,7 +10,7 @@ You will need to find the password your game uses for encryption on your own; th
 
  1. Download from the releases page
  2. Extract the file in a place you can easily access it
-	 ---Mac Users: I do not have $99/year to obtain an Apple programming license. The app will be considered "unnotarized" on Mac and you may need to [follow the instructions from the official Godot tutorial to run the app](https://docs.godotengine.org/en/stable/tutorials/export/running_on_macos.html#doc-running-on-macos).
+	 ---Mac Users: I do not have $99/year to obtain an Apple programming license. The app will be considered "unnotarized" on Mac and you may need to extract it in a specific folder. [Follow the instructions from the official Godot tutorial to run the app](https://docs.godotengine.org/en/stable/tutorials/export/running_on_macos.html#doc-running-on-macos).
  3. Run DEBUTTS.exe (or .dmg or whatever your OS calls it)
 
 
