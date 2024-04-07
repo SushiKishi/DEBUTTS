@@ -56,5 +56,18 @@ Please always back up your save files. ~~The app will attempt to do so for you a
 2. Find some Godot games that use serial whatchamacallit to save the game so I can code support for that
 3. Start a list of known save-file decryption passwords for games
 
+## License:
+The short version of the CC By 4.0 license is summarized by the deed available at the [Creative Commons website](https://creativecommons.org/licenses/by/4.0/deed.en), which states the following:
+	
+- You are free to:
+	- Share — copy and redistribute the material in any medium or format for any purpose, even commercially.
+	- Adapt — remix, transform, and build upon the material for any purpose, even commercially.
+	-The licensor cannot revoke these freedoms as long as you follow the license terms.
+- Under the following terms:
+	- Attribution — You must give appropriate credit , provide a link to the license, and indicate if changes were made . You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use.
+	- No additional restrictions — You may not apply legal terms or technological measures that legally restrict others from doing anything the license permits.
+
+The complete and legally-binding version of the license is under LICENSE.md.
+
 ## Credits:
 See the CREDITS.md file.
