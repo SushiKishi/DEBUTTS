@@ -14,7 +14,9 @@ config/name="Decryption/Encryption: Big Ugly Thing Transforming Saves"
 config/version="0.1"
 run/main_scene="res://control.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
-config/icon="res://ui/peach.svg"
+config/icon="res://ui/peach.png"
+config/macos_native_icon="res://ui/icon.icns"
+config/windows_native_icon="res://ui/icon.ico"
 
 [editor]
 
