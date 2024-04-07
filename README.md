@@ -2,7 +2,6 @@
 
 This app will decode save files from games made in the Godot save engine encrypted with its in-engine password-based function. It currently only works with games that save data in JSON format. You can then edit the save data inside the app, or in a separate text editor of your choice before encrypting the save file for use in your game.
 
-
 You will need to find the password your game uses for encryption on your own; this may or may not entail reverse-engineering the game or extracting the package file, and may not may not be against the license your game is distributed under. Please do your own research regarding what is permissible in your jurisdiction!
 
 
@@ -42,6 +41,8 @@ Take a look at the ["User://" section in the Godot Engine tutorials](https://doc
 ## Troubleshootin'
 
 If you open a file and you don't see it's data in the main window, you probably have the wrong password. Right now, if the app fails to open a file, it does so silently without any feedback, but that's going to be your issue 99% of the time.
+
+If you know you have the right password, or the file opens with the password but it gibberish, tweet @SushiKishi and let me know so I can look into it. It's probably an engine version issue; this app is built in Godot 4 so the encryption may have changed from older versions.
 
 If you edit your save file and can no longer open it in your game, it could be one of any number of issues. I would start by trying to open your newly-updated save file in DEBUTTS with the same password and make sure the file contents are actually being saved.  If it is being saved, check that your JSON is valid in a JSON validator like [JSONlint](https://jsonlint.com/).
 
