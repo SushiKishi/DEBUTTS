@@ -1,16 +1,24 @@
-[gd_scene load_steps=10 format=3 uid="uid://bivvk4ktw8skp"]
+[gd_scene load_steps=16 format=3 uid="uid://bivvk4ktw8skp"]
 
 [ext_resource type="Theme" uid="uid://bi54ign8ggomc" path="res://Themes/Classic95/Classic95.tres" id="1_sdolp"]
 [ext_resource type="Script" path="res://TheScript.gd" id="1_v3r1a"]
 [ext_resource type="FontFile" uid="uid://80f5vdk0lhte" path="res://ui/win95theme/MS Sans Serif.ttf" id="3_2h1bh"]
-[ext_resource type="Texture2D" uid="uid://cxbuaa1ovos3v" path="res://ui/FolderOpen.png" id="4_ucwp6"]
-[ext_resource type="Texture2D" uid="uid://cmeqfp1c38g8j" path="res://ui/FloppyDrive.png" id="5_mwy3n"]
-[ext_resource type="Texture2D" uid="uid://cxqsgijsc3tsi" path="res://ui/Clouds_(Windows_95).png" id="6_ouhfr"]
+[ext_resource type="Texture2D" uid="uid://cueaoumgai1s2" path="res://ui/clouds.jpg" id="3_c1nt0"]
 [ext_resource type="StyleBox" uid="uid://bxpx4pbhvqvh4" path="res://Themes/Classic311/Styles/Window/Panel.tres" id="7_u3kb3"]
+[ext_resource type="Texture2D" uid="uid://dwrlr5kog1wm" path="res://ui/folder.svg" id="7_y0s65"]
+[ext_resource type="Texture2D" uid="uid://dm53kyu526x4r" path="res://ui/floppy.svg" id="8_756r1"]
 [ext_resource type="FontFile" uid="uid://gjtx6ol7vkxs" path="res://ui/MS Sans Serif Bold.ttf" id="8_p1c41"]
+[ext_resource type="Texture2D" uid="uid://biubenaipbjhv" path="res://ui/help.svg" id="9_cnk8j"]
 [ext_resource type="StyleBox" uid="uid://db8yi3lyllpgi" path="res://Themes/Modern11/Styles/Text/LineEdit.tres" id="9_hr2mi"]
+[ext_resource type="Texture2D" uid="uid://col24cptogcad" path="res://ui/receiptCentered.png" id="10_uj0mc"]
+[ext_resource type="StyleBox" uid="uid://brivqokl8fjle" path="res://Themes/Modern11/Styles/Text/LineEditFocus.tres" id="11_ok4hx"]
+[ext_resource type="FontFile" uid="uid://cvotq5tbhk6dq" path="res://ui/DTM-Sans.otf" id="12_o3ekk"]
 
-[node name="Control" type="Control"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mqowr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_f4mfx"]
+
+[node name="Control" type="Control" node_paths=PackedStringArray("ButtonBox", "PasswordBoxData", "TextBox", "LoadFile", "SaveFile")]
 layout_mode = 3
 anchor_right = 1.08
 anchor_bottom = 1.0
@@ -23,41 +31,23 @@ grow_vertical = 2
 scale = Vector2(1, 0.996207)
 theme = ExtResource("1_sdolp")
 script = ExtResource("1_v3r1a")
-
-[node name="OpenFileDialog" type="FileDialog" parent="."]
-title = "Open a File"
-position = Vector2i(50, 50)
-size = Vector2i(800, 450)
-ok_button_text = "Open"
-cancel_button_text = "  Cancel  "
-file_mode = 0
-access = 2
-
-[node name="SaveFileDialog" type="FileDialog" parent="."]
-position = Vector2i(50, 50)
-size = Vector2i(800, 450)
-ok_button_text = "Save"
-access = 2
-
-[node name="Clouds" type="TextureRect" parent="."]
-layout_mode = 0
-offset_left = -63.0
-offset_top = 14.0
-offset_right = 1210.0
-offset_bottom = 656.0
-texture = ExtResource("6_ouhfr")
-stretch_mode = 1
+ButtonBox = NodePath("Main Window/Button Box")
+PasswordBoxData = NodePath("Main Window/Password Box/data")
+TextBox = NodePath("Main Window/Main Text Box/data")
+LoadFile = NodePath("DialogBoxes/OpenFileDialog")
+SaveFile = NodePath("DialogBoxes/SaveFileDialog")
 metadata/_edit_lock_ = true
 
-[node name="Password Panel" type="Panel" parent="."]
-layout_mode = 0
-offset_left = 827.0
-offset_top = 48.0
-offset_right = 1127.0
-offset_bottom = 126.0
+[node name="Main Window" type="Node" parent="."]
+
+[node name="Password Box" type="Panel" parent="Main Window"]
+offset_left = 757.0
+offset_top = 63.0
+offset_right = 1057.0
+offset_bottom = 140.0
 theme_override_styles/panel = ExtResource("7_u3kb3")
 
-[node name="PasswordBox" type="LineEdit" parent="Password Panel"]
+[node name="data" type="LineEdit" parent="Main Window/Password Box"]
 z_index = 1
 texture_filter = 1
 texture_repeat = 1
@@ -66,12 +56,13 @@ offset_left = 6.0
 offset_top = 32.1218
 offset_right = 295.0
 offset_bottom = 68.1218
+theme = ExtResource("1_sdolp")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_placeholder_color = Color(0.317647, 0.317647, 0.317647, 1)
+theme_override_colors/font_placeholder_color = Color(0.560784, 0.560784, 0.560784, 1)
 theme_override_fonts/font = ExtResource("3_2h1bh")
 placeholder_text = "You didn't say the magic word!"
 
-[node name="TextLabel" type="RichTextLabel" parent="Password Panel"]
+[node name="TextLabel" type="RichTextLabel" parent="Main Window/Password Box"]
 layout_mode = 0
 offset_left = 9.0
 offset_top = 6.0
@@ -84,7 +75,7 @@ theme_override_font_sizes/normal_font_size = 18
 text = "Encryption Password:"
 scroll_active = false
 
-[node name="WindowLabel" type="RichTextLabel" parent="Password Panel"]
+[node name="WindowLabel" type="RichTextLabel" parent="Main Window/Password Box"]
 layout_mode = 0
 offset_left = 4.0
 offset_top = -21.901
@@ -100,65 +91,19 @@ bbcode_enabled = true
 text = "[b]Ah, ah, ah![/b]"
 scroll_active = false
 
-[node name="FileOps Panel" type="Panel" parent="."]
-layout_mode = 0
-offset_left = 827.0
-offset_top = 166.632
-offset_right = 1127.0
-offset_bottom = 260.632
+[node name="Main Text Box" type="Panel" parent="Main Window"]
+offset_left = 19.0
+offset_top = 27.8521
+offset_right = 731.0
+offset_bottom = 637.852
 theme_override_styles/panel = ExtResource("7_u3kb3")
-metadata/_edit_lock_ = true
 
-[node name="OpenFileButton" type="Button" parent="FileOps Panel"]
-z_index = 1
-layout_mode = 0
-offset_left = 6.0
-offset_top = 12.0457
-offset_right = 81.0
-offset_bottom = 87.0457
-theme = ExtResource("1_sdolp")
-theme_type_variation = &"FlatButton"
-theme_override_fonts/font = ExtResource("3_2h1bh")
-icon = ExtResource("4_ucwp6")
-expand_icon = true
-
-[node name="SaveFileButton" type="Button" parent="FileOps Panel"]
-z_index = 1
-layout_mode = 0
-offset_left = 215.0
-offset_top = 12.0457
-offset_right = 290.0
-offset_bottom = 87.0457
-theme = ExtResource("1_sdolp")
-theme_type_variation = &"FlatButton"
-theme_override_fonts/font = ExtResource("3_2h1bh")
-icon = ExtResource("5_mwy3n")
-expand_icon = true
-
-[node name="HelpText2" type="RichTextLabel" parent="FileOps Panel"]
-layout_mode = 0
-offset_left = 87.0
-offset_top = 12.0
-offset_right = 209.0
-offset_bottom = 89.0
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_colors/selection_color = Color(0.380392, 0.572549, 1, 1)
-theme_override_fonts/normal_font = ExtResource("3_2h1bh")
-theme_override_fonts/bold_font = ExtResource("8_p1c41")
-theme_override_font_sizes/normal_font_size = 16
-theme_override_font_sizes/bold_font_size = 16
-bbcode_enabled = true
-text = "[center]Not responsible for lost data!
-KEEP! A!
-BACKUP! FILE![/center]"
-scroll_active = false
-
-[node name="WindowLabel" type="RichTextLabel" parent="FileOps Panel"]
+[node name="WindowLabel" type="RichTextLabel" parent="Main Window/Main Text Box"]
 layout_mode = 0
 offset_left = 4.0
 offset_top = -21.901
 offset_right = 288.0
-offset_bottom = 8.09901
+offset_bottom = 8.09898
 theme_override_colors/default_color = Color(1, 1, 1, 1)
 theme_override_colors/selection_color = Color(0.380392, 0.572549, 1, 1)
 theme_override_fonts/normal_font = ExtResource("3_2h1bh")
@@ -166,18 +111,87 @@ theme_override_fonts/bold_font = ExtResource("8_p1c41")
 theme_override_font_sizes/normal_font_size = 24
 theme_override_font_sizes/bold_font_size = 16
 bbcode_enabled = true
-text = "[b]File Operations.exe[/b]"
+text = "[b]DEBUTTS v#.##[/b]"
 scroll_active = false
 
-[node name="TextEditor" type="Panel" parent="."]
+[node name="data" type="TextEdit" parent="Main Window/Main Text Box"]
+z_index = 1
 layout_mode = 0
-offset_left = 21.0
-offset_top = 45.0
-offset_right = 773.0
-offset_bottom = 633.0
+offset_left = 2.0
+offset_right = 711.0
+offset_bottom = 609.0
+theme = ExtResource("1_sdolp")
+theme_override_colors/background_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_placeholder_color = Color(0.521569, 0.521569, 0.521569, 1)
+theme_override_fonts/font = ExtResource("3_2h1bh")
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = ExtResource("9_hr2mi")
+theme_override_styles/focus = ExtResource("11_ok4hx")
+placeholder_text = "If you're still seeing this message after you tried to open a file, it's probably because the password was wrong. It's not a password that you're using to protect your own files -- it's a password the developer used when creating the game and is specific to each game."
+wrap_mode = 1
+
+[node name="Button Box" type="Panel" parent="Main Window"]
+offset_left = 814.0
+offset_top = 185.0
+offset_right = 1114.0
+offset_bottom = 283.0
 theme_override_styles/panel = ExtResource("7_u3kb3")
 
-[node name="WindowLabel" type="RichTextLabel" parent="TextEditor"]
+[node name="LoadFile" type="Button" parent="Main Window/Button Box" groups=["FileOpButtons"]]
+z_index = 1
+layout_mode = 0
+offset_left = 10.0
+offset_top = 12.0
+offset_right = 80.0
+offset_bottom = 82.0
+theme = ExtResource("1_sdolp")
+theme_type_variation = &"FlatButton"
+theme_override_fonts/font = ExtResource("3_2h1bh")
+icon = ExtResource("7_y0s65")
+expand_icon = true
+
+[node name="SaveFile" type="Button" parent="Main Window/Button Box" groups=["FileOpButtons"]]
+z_index = 1
+layout_mode = 0
+offset_left = 80.0
+offset_top = 12.0
+offset_right = 150.0
+offset_bottom = 82.0
+theme = ExtResource("1_sdolp")
+theme_type_variation = &"FlatButton"
+theme_override_fonts/font = ExtResource("3_2h1bh")
+icon = ExtResource("8_756r1")
+expand_icon = true
+
+[node name="Help" type="Button" parent="Main Window/Button Box" groups=["ToggleWindowButtons"]]
+z_index = 1
+layout_mode = 0
+offset_left = 150.0
+offset_top = 12.0
+offset_right = 220.0
+offset_bottom = 82.0
+theme = ExtResource("1_sdolp")
+theme_type_variation = &"FlatButton"
+theme_override_fonts/font = ExtResource("3_2h1bh")
+icon = ExtResource("9_cnk8j")
+expand_icon = true
+
+[node name="Credits" type="Button" parent="Main Window/Button Box" groups=["ToggleWindowButtons"]]
+z_index = 1
+layout_mode = 0
+offset_left = 220.0
+offset_top = 12.0
+offset_right = 290.0
+offset_bottom = 82.0
+theme = ExtResource("1_sdolp")
+theme_type_variation = &"FlatButton"
+theme_override_fonts/font = ExtResource("3_2h1bh")
+icon = ExtResource("10_uj0mc")
+icon_alignment = 1
+expand_icon = true
+
+[node name="WindowLabel" type="RichTextLabel" parent="Main Window/Button Box"]
 layout_mode = 0
 offset_left = 4.0
 offset_top = -18.8896
@@ -190,56 +204,22 @@ theme_override_fonts/bold_font = ExtResource("8_p1c41")
 theme_override_font_sizes/normal_font_size = 24
 theme_override_font_sizes/bold_font_size = 16
 bbcode_enabled = true
-text = "[b]RIP Microsoft Wordpad[/b]"
+text = "[b]Toolbox[/b]"
 scroll_active = false
 
-[node name="TheData" type="TextEdit" parent="TextEditor"]
-z_index = 1
-layout_mode = 0
-offset_left = 2.0
-offset_right = 752.0
-offset_bottom = 588.0
-theme = ExtResource("1_sdolp")
-theme_override_colors/background_color = Color(1, 1, 1, 1)
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_placeholder_color = Color(0.521569, 0.521569, 0.521569, 1)
-theme_override_fonts/font = ExtResource("3_2h1bh")
-theme_override_font_sizes/font_size = 18
-theme_override_styles/normal = ExtResource("9_hr2mi")
-text = "PLEASE KEEP A BACKUP OF YOUR SAVE FILES!
-
-****Note: If you're still seeing this message after you tried to open a file, it's probably because the password was wrong.***
-
-You can open a file to decrypt it and put the contents here. Then you can edit it and save. You can also edit the file using a different text editor and paste it back here! The world is your oyster.
-
-Right now, the app assumes the game save is in JSON format, and will only save in JSON format. If it fails to save, it does so silently -- I've been working with Godot for about two hours at this point, cut me some slack! <3
-
-PLEASE KEEP A BACKUP OF YOUR SAVE FILES!"
-placeholder_text = "PLEASE KEEP A BACKUP OF YOUR SAVE FILES!
-
-****Note: If you're still seeing this message after you tried to open a file, it's probably because the password was wrong.***
-
-You can open a file to decrypt it and put the contents here. Then you can edit it and save. You can also edit the file using a different text editor and paste it back here! The world is your oyster.
-
-Right now, the app assumes the game save is in JSON format, and will only save in JSON format. If it fails to save, it does so silently -- I've been working with Godot for about two hours at this point, cut me some slack! <3
-
-PLEASE KEEP A BACKUP OF YOUR SAVE FILES!"
-wrap_mode = 1
-
-[node name="Help Panel" type="Panel" parent="."]
-layout_mode = 0
-offset_left = 827.0
-offset_top = 298.0
-offset_right = 1127.0
-offset_bottom = 636.0
+[node name="Tutorial Box" type="Panel" parent="Main Window"]
+offset_left = 750.0
+offset_top = 329.703
+offset_right = 1050.0
+offset_bottom = 508.703
 theme_override_styles/panel = ExtResource("7_u3kb3")
 
-[node name="WindowLabel" type="RichTextLabel" parent="Help Panel"]
+[node name="WindowLabel" type="RichTextLabel" parent="Main Window/Tutorial Box"]
 layout_mode = 0
 offset_left = 4.0
-offset_top = -20.8972
+offset_top = -18.8896
 offset_right = 288.0
-offset_bottom = 9.10279
+offset_bottom = 11.1104
 theme_override_colors/default_color = Color(1, 1, 1, 1)
 theme_override_colors/selection_color = Color(0.380392, 0.572549, 1, 1)
 theme_override_fonts/normal_font = ExtResource("3_2h1bh")
@@ -247,15 +227,15 @@ theme_override_fonts/bold_font = ExtResource("8_p1c41")
 theme_override_font_sizes/normal_font_size = 24
 theme_override_font_sizes/bold_font_size = 16
 bbcode_enabled = true
-text = "[b]DE:BUTTS v0.1[/b]"
+text = "[b]Quick Tutorial[/b]"
 scroll_active = false
 
-[node name="HelpText" type="RichTextLabel" parent="Help Panel"]
+[node name="HelpText" type="RichTextLabel" parent="Main Window/Tutorial Box"]
 layout_mode = 0
 offset_left = 4.0
 offset_top = 9.0
 offset_right = 295.0
-offset_bottom = 337.0
+offset_bottom = 200.0
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_colors/selection_color = Color(0.380392, 0.572549, 1, 1)
 theme_override_fonts/normal_font = ExtResource("3_2h1bh")
@@ -263,18 +243,112 @@ theme_override_fonts/bold_font = ExtResource("8_p1c41")
 theme_override_font_sizes/normal_font_size = 16
 theme_override_font_sizes/bold_font_size = 16
 bbcode_enabled = true
-text = "Enter the encryption password for the game or file you're trying to edit in the top box. What's the password? Who knows!
-
-Click the folder to choose a file to open, and your decrypted save data (or other data) will appear in the box on the left. Feel free to copy-paste the data to another text editor if you wish, or simply use the box here to make your changes.
-
-Click the floppy disc drive to encypt and save your data. 99.999% of the time, you use the same password for loading and saving your file.
-
-[center][color=#0055FF][url=https://jsonlint.com/]JSON Validator and Formatter
-https://jsonlint.com/[/url][/color][/center]"
+text = "0) Find the right password for your game
+1) Enter the password in the top box
+2) Click the folder to open a file, or paste save data directly into the box
+3) Modify your data -- you can use a standard text editor if you wish.
+4) To save your edits, click on the floppy disk.  99.999% of the time, you will use the same password"
 scroll_active = false
 
-[connection signal="file_selected" from="OpenFileDialog" to="." method="_on_open_file_dialog_file_selected"]
-[connection signal="file_selected" from="SaveFileDialog" to="." method="_on_save_file_dialog_file_selected"]
-[connection signal="pressed" from="FileOps Panel/OpenFileButton" to="." method="_on_open_file_button_pressed"]
-[connection signal="pressed" from="FileOps Panel/SaveFileButton" to="." method="_on_save_file_button_pressed"]
-[connection signal="meta_clicked" from="Help Panel/HelpText" to="." method="_on_help_text_meta_clicked"]
+[node name="TextEdit" type="RichTextLabel" parent="Main Window"]
+offset_left = 735.0
+offset_top = 605.0
+offset_right = 1146.0
+offset_bottom = 667.0
+theme_override_colors/default_color = Color(0, 0, 0, 0.290196)
+theme_override_fonts/normal_font = ExtResource("12_o3ekk")
+theme_override_font_sizes/normal_font_size = 15
+theme_override_styles/focus = SubResource("StyleBoxEmpty_mqowr")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_f4mfx")
+bbcode_enabled = true
+text = "[right]Unregistered Blindows v9.8
+Click [url=https://www.youtube.com/watch?v=i_VfjH3G6Bw]here[/url] to activate  or YoU'll Be In trouble!"
+scroll_active = false
+autowrap_mode = 0
+shortcut_keys_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+
+[node name="DialogBoxes" type="Node" parent="."]
+
+[node name="SaveFileDialog" type="FileDialog" parent="DialogBoxes"]
+position = Vector2i(50, 50)
+size = Vector2i(800, 450)
+ok_button_text = "Save"
+access = 2
+
+[node name="OpenFileDialog" type="FileDialog" parent="DialogBoxes"]
+title = "Open a File"
+position = Vector2i(50, 50)
+size = Vector2i(800, 450)
+ok_button_text = "Open"
+cancel_button_text = "  Cancel  "
+file_mode = 0
+access = 2
+
+[node name="Clouds" type="TextureRect" parent="."]
+z_index = -1
+layout_mode = 0
+offset_left = -3.0
+offset_right = 1184.57
+offset_bottom = 669.0
+texture = ExtResource("3_c1nt0")
+expand_mode = 3
+stretch_mode = 6
+metadata/_edit_lock_ = true
+
+[node name="Help Window" type="Node" parent="."]
+
+[node name="Tutorial Box" type="Panel" parent="Help Window"]
+visible = false
+offset_left = 2.0
+offset_top = -11.0
+offset_right = 2.0
+offset_bottom = -11.0
+theme_override_styles/panel = ExtResource("7_u3kb3")
+
+[node name="WindowLabel" type="RichTextLabel" parent="Help Window/Tutorial Box"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = -18.8896
+offset_right = 288.0
+offset_bottom = 11.1104
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/selection_color = Color(0.380392, 0.572549, 1, 1)
+theme_override_fonts/normal_font = ExtResource("3_2h1bh")
+theme_override_fonts/bold_font = ExtResource("8_p1c41")
+theme_override_font_sizes/normal_font_size = 24
+theme_override_font_sizes/bold_font_size = 16
+bbcode_enabled = true
+text = "[b]Quick Tutorial[/b]"
+scroll_active = false
+
+[node name="HelpText" type="RichTextLabel" parent="Help Window/Tutorial Box"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 9.0
+offset_right = 295.0
+offset_bottom = 200.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_colors/selection_color = Color(0.380392, 0.572549, 1, 1)
+theme_override_fonts/normal_font = ExtResource("3_2h1bh")
+theme_override_fonts/bold_font = ExtResource("8_p1c41")
+theme_override_font_sizes/normal_font_size = 16
+theme_override_font_sizes/bold_font_size = 16
+bbcode_enabled = true
+text = "0) Find the right password for your game
+1) Enter the password in the top box
+2) Click the folder to open a file, or paste save data directly into the box
+3) Modify your data -- you can use a standard text editor if you wish.
+4) To save your edits, click on the floppy disk.  99.999% of the time, you will use the same password"
+scroll_active = false
+
+[connection signal="pressed" from="Main Window/Button Box/LoadFile" to="." method="_on_open_file_button_pressed"]
+[connection signal="pressed" from="Main Window/Button Box/SaveFile" to="." method="_on_save_file_button_pressed"]
+[connection signal="pressed" from="Main Window/Button Box/Help" to="." method="_on_help_button_pressed"]
+[connection signal="pressed" from="Main Window/Button Box/Credits" to="." method="_on_save_file_button_pressed"]
+[connection signal="meta_clicked" from="Main Window/Tutorial Box/HelpText" to="." method="_on_help_text_meta_clicked"]
+[connection signal="meta_clicked" from="Main Window/TextEdit" to="." method="clicked_link"]
+[connection signal="file_selected" from="DialogBoxes/SaveFileDialog" to="." method="_on_save_file_dialog_file_selected"]
+[connection signal="file_selected" from="DialogBoxes/OpenFileDialog" to="." method="_on_open_file_dialog_file_selected"]
+[connection signal="meta_clicked" from="Help Window/Tutorial Box/HelpText" to="." method="_on_help_text_meta_clicked"]

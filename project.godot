@@ -10,9 +10,11 @@ config_version=5
 
 [application]
 
-config/name="Decryption/Encryption: Big Ugly Thing Transforming Saves"
-config/version="0.1"
+config/name="Decrypting and Encrypting Big Ugly Thing Transforming Saves"
+config/version="1.00"
 run/main_scene="res://control.tscn"
+config/use_custom_user_dir=true
+config/custom_user_dir_name="DEBUTTS"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://ui/peach.png"
 config/macos_native_icon="res://ui/icon.icns"
@@ -22,3 +24,7 @@ config/windows_native_icon="res://ui/icon.ico"
 
 version_control/plugin_name="GitPlugin"
 version_control/autoload_on_startup=true
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/markdownlabel/plugin.cfg")
