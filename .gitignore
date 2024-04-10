@@ -13,3 +13,6 @@ data_*/
 
 #NPP backups
 *.bak
+
+#TMP files?
+*.tmp
