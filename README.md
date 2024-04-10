@@ -46,9 +46,7 @@ If you open a file and you don't see it's data in the main window, you probably 
 
 If you know you have the right password, or the file opens with the password but it gibberish, tweet @SushiKishi and let me know so I can look into it. It's probably an engine version issue; this app is built in Godot 4 so the encryption may have changed from older versions.
 
-If you edit your save file and can no longer open it in your game, it could be one of any number of issues. I would start by trying to open your newly-updated save file in DEBUTTS with the same password and make sure the file contents are actually being saved.  If it is being saved, check that your JSON is valid in a JSON validator like [JSONlint](https://jsonlint.com/).
-
-It may be that the save data isn't in JSON format at all, in which case the app can open it and spit out the text, but it won't be able to save.  If you run into this scenario, please let me know on Twitter! I can't actually look into how to save this type of data if I don't have some examples to work with!
+If you edit your save file and can no longer open it in your game, it could be one of any number of issues. I would start by trying to open your newly-updated save file in DEBUTTS with the same password and make sure the file contents are actually being saved.  If it is being saved, check that your JSON is valid in a JSON validator like [JSONlint](https://jsonlint.com/) or check your Serialization-based file to missing brackets or parenthesis -- the only web-based app I can find for this is [Balance Braces](http://balancebraces.com/), but be advised it doesn't use HTTPS protocol.
 
 If you save your file, but now it's empty when you open it in the app, well, this shouldn't happen but it might if you save without any password entered.
 
