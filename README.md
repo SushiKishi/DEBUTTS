@@ -54,7 +54,7 @@ It may be that the save data isn't in JSON format at all, in which case the app 
 
 If you save your file, but now it's empty when you open it in the app, well, this shouldn't happen but it might if you save without any password entered.
 
-Please always back up your save files. ~~The app will attempt to do so for you and will save it in the app's data folder specific to your OS.~~ The developer is not responsible for any lost data.
+If DEBUTTS detects you're overwriting a file that already exists, it should make a backup for you. The backup folder is in the same folder the application is in and is sorted by date and time. Regardless, you should take care not to lose your precious save data, as the developer is not responsible for any lost information.
 
 ## To-do:
 1. Start a list of known save-file decryption passwords for games
