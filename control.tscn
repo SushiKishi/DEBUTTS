@@ -1,24 +1,83 @@
-[gd_scene load_steps=16 format=3 uid="uid://bivvk4ktw8skp"]
+[gd_scene load_steps=33 format=3 uid="uid://bivvk4ktw8skp"]
 
 [ext_resource type="Theme" uid="uid://bi54ign8ggomc" path="res://Themes/Classic95/Classic95.tres" id="1_sdolp"]
 [ext_resource type="Script" path="res://TheScript.gd" id="1_v3r1a"]
 [ext_resource type="FontFile" uid="uid://80f5vdk0lhte" path="res://ui/win95theme/MS Sans Serif.ttf" id="3_2h1bh"]
 [ext_resource type="Texture2D" uid="uid://cueaoumgai1s2" path="res://ui/clouds.jpg" id="3_c1nt0"]
 [ext_resource type="StyleBox" uid="uid://bxpx4pbhvqvh4" path="res://Themes/Classic311/Styles/Window/Panel.tres" id="7_u3kb3"]
-[ext_resource type="Texture2D" uid="uid://dwrlr5kog1wm" path="res://ui/folder.svg" id="7_y0s65"]
 [ext_resource type="Texture2D" uid="uid://dm53kyu526x4r" path="res://ui/floppy.svg" id="8_756r1"]
 [ext_resource type="FontFile" uid="uid://gjtx6ol7vkxs" path="res://ui/MS Sans Serif Bold.ttf" id="8_p1c41"]
+[ext_resource type="Texture2D" uid="uid://cd68lvwb56ktg" path="res://ui/folderCentered.png" id="9_6nc74"]
 [ext_resource type="Texture2D" uid="uid://biubenaipbjhv" path="res://ui/help.svg" id="9_cnk8j"]
 [ext_resource type="StyleBox" uid="uid://db8yi3lyllpgi" path="res://Themes/Modern11/Styles/Text/LineEdit.tres" id="9_hr2mi"]
 [ext_resource type="Texture2D" uid="uid://col24cptogcad" path="res://ui/receiptCentered.png" id="10_uj0mc"]
 [ext_resource type="StyleBox" uid="uid://brivqokl8fjle" path="res://Themes/Modern11/Styles/Text/LineEditFocus.tres" id="11_ok4hx"]
 [ext_resource type="FontFile" uid="uid://cvotq5tbhk6dq" path="res://ui/DTM-Sans.otf" id="12_o3ekk"]
+[ext_resource type="Script" path="res://addons/markdownlabel/markdownlabel.gd" id="13_1ivh8"]
+[ext_resource type="Script" path="res://addons/markdownlabel/header_formats/h1_format.gd" id="14_tpsqr"]
+[ext_resource type="Script" path="res://addons/markdownlabel/header_formats/h2_format.gd" id="15_lxd7b"]
+[ext_resource type="Script" path="res://addons/markdownlabel/header_formats/h3_format.gd" id="16_kdsyi"]
+[ext_resource type="Script" path="res://addons/markdownlabel/header_formats/h4_format.gd" id="17_0w2s2"]
+[ext_resource type="Script" path="res://addons/markdownlabel/header_formats/h5_format.gd" id="18_6gfga"]
+[ext_resource type="Script" path="res://addons/markdownlabel/header_formats/h6_format.gd" id="19_illjn"]
+[ext_resource type="Texture2D" uid="uid://7or2vxxnks4p" path="res://ui/peach.png" id="19_q58oa"]
+[ext_resource type="Texture2D" uid="uid://dii0pj5oponpx" path="res://ui/octocatCentered.png" id="20_nu8wj"]
+[ext_resource type="Texture2D" uid="uid://cl48k3h3invgi" path="res://ui/twitter.svg" id="21_a28jt"]
+[ext_resource type="Texture2D" uid="uid://decc5ceef5asj" path="res://ui/friday-halloween-jason-svgrepo-com.svg" id="22_4semk"]
+
+[sub_resource type="Resource" id="Resource_pew5p"]
+resource_local_to_scene = true
+script = ExtResource("14_tpsqr")
+font_size = 2.285
+is_bold = false
+is_italic = false
+is_underlined = false
+
+[sub_resource type="Resource" id="Resource_eh5eh"]
+resource_local_to_scene = true
+script = ExtResource("15_lxd7b")
+font_size = 1.714
+is_bold = false
+is_italic = false
+is_underlined = false
+
+[sub_resource type="Resource" id="Resource_e51s3"]
+resource_local_to_scene = true
+script = ExtResource("16_kdsyi")
+font_size = 1.428
+is_bold = false
+is_italic = false
+is_underlined = false
+
+[sub_resource type="Resource" id="Resource_5r4c3"]
+resource_local_to_scene = true
+script = ExtResource("17_0w2s2")
+font_size = 1.142
+is_bold = false
+is_italic = false
+is_underlined = false
+
+[sub_resource type="Resource" id="Resource_ngyse"]
+resource_local_to_scene = true
+script = ExtResource("18_6gfga")
+font_size = 1.0
+is_bold = false
+is_italic = false
+is_underlined = false
+
+[sub_resource type="Resource" id="Resource_gqqah"]
+resource_local_to_scene = true
+script = ExtResource("19_illjn")
+font_size = 0.857
+is_bold = false
+is_italic = false
+is_underlined = false
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mqowr"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_f4mfx"]
 
-[node name="Control" type="Control" node_paths=PackedStringArray("ButtonBox", "PasswordBoxData", "TextBox", "LoadFile", "SaveFile")]
+[node name="Control" type="Control" node_paths=PackedStringArray("ButtonBox", "MainBox", "HelpBox", "CreditsBox", "PasswordBoxData", "TextBox", "LoadFile", "SaveFile")]
 layout_mode = 3
 anchor_right = 1.08
 anchor_bottom = 1.0
@@ -31,243 +90,15 @@ grow_vertical = 2
 scale = Vector2(1, 0.996207)
 theme = ExtResource("1_sdolp")
 script = ExtResource("1_v3r1a")
-ButtonBox = NodePath("Main Window/Button Box")
-PasswordBoxData = NodePath("Main Window/Password Box/data")
-TextBox = NodePath("Main Window/Main Text Box/data")
+ButtonBox = NodePath("Button Box")
+MainBox = NodePath("Main Text Box")
+HelpBox = NodePath("Help Box")
+CreditsBox = NodePath("Credits Box")
+PasswordBoxData = NodePath("Password Box/data")
+TextBox = NodePath("Main Text Box/data")
 LoadFile = NodePath("DialogBoxes/OpenFileDialog")
 SaveFile = NodePath("DialogBoxes/SaveFileDialog")
 metadata/_edit_lock_ = true
-
-[node name="Main Window" type="Node" parent="."]
-
-[node name="Password Box" type="Panel" parent="Main Window"]
-offset_left = 757.0
-offset_top = 63.0
-offset_right = 1057.0
-offset_bottom = 140.0
-theme_override_styles/panel = ExtResource("7_u3kb3")
-
-[node name="data" type="LineEdit" parent="Main Window/Password Box"]
-z_index = 1
-texture_filter = 1
-texture_repeat = 1
-layout_mode = 0
-offset_left = 6.0
-offset_top = 32.1218
-offset_right = 295.0
-offset_bottom = 68.1218
-theme = ExtResource("1_sdolp")
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_placeholder_color = Color(0.560784, 0.560784, 0.560784, 1)
-theme_override_fonts/font = ExtResource("3_2h1bh")
-placeholder_text = "You didn't say the magic word!"
-
-[node name="TextLabel" type="RichTextLabel" parent="Main Window/Password Box"]
-layout_mode = 0
-offset_left = 9.0
-offset_top = 6.0
-offset_right = 293.0
-offset_bottom = 30.0
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_colors/selection_color = Color(0.380392, 0.572549, 1, 1)
-theme_override_fonts/normal_font = ExtResource("3_2h1bh")
-theme_override_font_sizes/normal_font_size = 18
-text = "Encryption Password:"
-scroll_active = false
-
-[node name="WindowLabel" type="RichTextLabel" parent="Main Window/Password Box"]
-layout_mode = 0
-offset_left = 4.0
-offset_top = -21.901
-offset_right = 288.0
-offset_bottom = 8.09901
-theme_override_colors/default_color = Color(1, 1, 1, 1)
-theme_override_colors/selection_color = Color(0.380392, 0.572549, 1, 1)
-theme_override_fonts/normal_font = ExtResource("3_2h1bh")
-theme_override_fonts/bold_font = ExtResource("8_p1c41")
-theme_override_font_sizes/normal_font_size = 24
-theme_override_font_sizes/bold_font_size = 16
-bbcode_enabled = true
-text = "[b]Ah, ah, ah![/b]"
-scroll_active = false
-
-[node name="Main Text Box" type="Panel" parent="Main Window"]
-offset_left = 19.0
-offset_top = 27.8521
-offset_right = 731.0
-offset_bottom = 637.852
-theme_override_styles/panel = ExtResource("7_u3kb3")
-
-[node name="WindowLabel" type="RichTextLabel" parent="Main Window/Main Text Box"]
-layout_mode = 0
-offset_left = 4.0
-offset_top = -21.901
-offset_right = 288.0
-offset_bottom = 8.09898
-theme_override_colors/default_color = Color(1, 1, 1, 1)
-theme_override_colors/selection_color = Color(0.380392, 0.572549, 1, 1)
-theme_override_fonts/normal_font = ExtResource("3_2h1bh")
-theme_override_fonts/bold_font = ExtResource("8_p1c41")
-theme_override_font_sizes/normal_font_size = 24
-theme_override_font_sizes/bold_font_size = 16
-bbcode_enabled = true
-text = "[b]DEBUTTS v#.##[/b]"
-scroll_active = false
-
-[node name="data" type="TextEdit" parent="Main Window/Main Text Box"]
-z_index = 1
-layout_mode = 0
-offset_left = 2.0
-offset_right = 711.0
-offset_bottom = 609.0
-theme = ExtResource("1_sdolp")
-theme_override_colors/background_color = Color(1, 1, 1, 1)
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_placeholder_color = Color(0.521569, 0.521569, 0.521569, 1)
-theme_override_fonts/font = ExtResource("3_2h1bh")
-theme_override_font_sizes/font_size = 18
-theme_override_styles/normal = ExtResource("9_hr2mi")
-theme_override_styles/focus = ExtResource("11_ok4hx")
-placeholder_text = "If you're still seeing this message after you tried to open a file, it's probably because the password was wrong. It's not a password that you're using to protect your own files -- it's a password the developer used when creating the game and is specific to each game."
-wrap_mode = 1
-
-[node name="Button Box" type="Panel" parent="Main Window"]
-offset_left = 814.0
-offset_top = 185.0
-offset_right = 1114.0
-offset_bottom = 283.0
-theme_override_styles/panel = ExtResource("7_u3kb3")
-
-[node name="LoadFile" type="Button" parent="Main Window/Button Box" groups=["FileOpButtons"]]
-z_index = 1
-layout_mode = 0
-offset_left = 10.0
-offset_top = 12.0
-offset_right = 80.0
-offset_bottom = 82.0
-theme = ExtResource("1_sdolp")
-theme_type_variation = &"FlatButton"
-theme_override_fonts/font = ExtResource("3_2h1bh")
-icon = ExtResource("7_y0s65")
-expand_icon = true
-
-[node name="SaveFile" type="Button" parent="Main Window/Button Box" groups=["FileOpButtons"]]
-z_index = 1
-layout_mode = 0
-offset_left = 80.0
-offset_top = 12.0
-offset_right = 150.0
-offset_bottom = 82.0
-theme = ExtResource("1_sdolp")
-theme_type_variation = &"FlatButton"
-theme_override_fonts/font = ExtResource("3_2h1bh")
-icon = ExtResource("8_756r1")
-expand_icon = true
-
-[node name="Help" type="Button" parent="Main Window/Button Box" groups=["ToggleWindowButtons"]]
-z_index = 1
-layout_mode = 0
-offset_left = 150.0
-offset_top = 12.0
-offset_right = 220.0
-offset_bottom = 82.0
-theme = ExtResource("1_sdolp")
-theme_type_variation = &"FlatButton"
-theme_override_fonts/font = ExtResource("3_2h1bh")
-icon = ExtResource("9_cnk8j")
-expand_icon = true
-
-[node name="Credits" type="Button" parent="Main Window/Button Box" groups=["ToggleWindowButtons"]]
-z_index = 1
-layout_mode = 0
-offset_left = 220.0
-offset_top = 12.0
-offset_right = 290.0
-offset_bottom = 82.0
-theme = ExtResource("1_sdolp")
-theme_type_variation = &"FlatButton"
-theme_override_fonts/font = ExtResource("3_2h1bh")
-icon = ExtResource("10_uj0mc")
-icon_alignment = 1
-expand_icon = true
-
-[node name="WindowLabel" type="RichTextLabel" parent="Main Window/Button Box"]
-layout_mode = 0
-offset_left = 4.0
-offset_top = -18.8896
-offset_right = 288.0
-offset_bottom = 11.1104
-theme_override_colors/default_color = Color(1, 1, 1, 1)
-theme_override_colors/selection_color = Color(0.380392, 0.572549, 1, 1)
-theme_override_fonts/normal_font = ExtResource("3_2h1bh")
-theme_override_fonts/bold_font = ExtResource("8_p1c41")
-theme_override_font_sizes/normal_font_size = 24
-theme_override_font_sizes/bold_font_size = 16
-bbcode_enabled = true
-text = "[b]Toolbox[/b]"
-scroll_active = false
-
-[node name="Tutorial Box" type="Panel" parent="Main Window"]
-offset_left = 750.0
-offset_top = 329.703
-offset_right = 1050.0
-offset_bottom = 508.703
-theme_override_styles/panel = ExtResource("7_u3kb3")
-
-[node name="WindowLabel" type="RichTextLabel" parent="Main Window/Tutorial Box"]
-layout_mode = 0
-offset_left = 4.0
-offset_top = -18.8896
-offset_right = 288.0
-offset_bottom = 11.1104
-theme_override_colors/default_color = Color(1, 1, 1, 1)
-theme_override_colors/selection_color = Color(0.380392, 0.572549, 1, 1)
-theme_override_fonts/normal_font = ExtResource("3_2h1bh")
-theme_override_fonts/bold_font = ExtResource("8_p1c41")
-theme_override_font_sizes/normal_font_size = 24
-theme_override_font_sizes/bold_font_size = 16
-bbcode_enabled = true
-text = "[b]Quick Tutorial[/b]"
-scroll_active = false
-
-[node name="HelpText" type="RichTextLabel" parent="Main Window/Tutorial Box"]
-layout_mode = 0
-offset_left = 4.0
-offset_top = 9.0
-offset_right = 295.0
-offset_bottom = 200.0
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_colors/selection_color = Color(0.380392, 0.572549, 1, 1)
-theme_override_fonts/normal_font = ExtResource("3_2h1bh")
-theme_override_fonts/bold_font = ExtResource("8_p1c41")
-theme_override_font_sizes/normal_font_size = 16
-theme_override_font_sizes/bold_font_size = 16
-bbcode_enabled = true
-text = "0) Find the right password for your game
-1) Enter the password in the top box
-2) Click the folder to open a file, or paste save data directly into the box
-3) Modify your data -- you can use a standard text editor if you wish.
-4) To save your edits, click on the floppy disk.  99.999% of the time, you will use the same password"
-scroll_active = false
-
-[node name="TextEdit" type="RichTextLabel" parent="Main Window"]
-offset_left = 735.0
-offset_top = 605.0
-offset_right = 1146.0
-offset_bottom = 667.0
-theme_override_colors/default_color = Color(0, 0, 0, 0.290196)
-theme_override_fonts/normal_font = ExtResource("12_o3ekk")
-theme_override_font_sizes/normal_font_size = 15
-theme_override_styles/focus = SubResource("StyleBoxEmpty_mqowr")
-theme_override_styles/normal = SubResource("StyleBoxEmpty_f4mfx")
-bbcode_enabled = true
-text = "[right]Unregistered Blindows v9.8
-Click [url=https://www.youtube.com/watch?v=i_VfjH3G6Bw]here[/url] to activate  or YoU'll Be In trouble!"
-scroll_active = false
-autowrap_mode = 0
-shortcut_keys_enabled = false
-deselect_on_focus_loss_enabled = false
-drag_and_drop_selection_enabled = false
 
 [node name="DialogBoxes" type="Node" parent="."]
 
@@ -286,28 +117,111 @@ cancel_button_text = "  Cancel  "
 file_mode = 0
 access = 2
 
-[node name="Clouds" type="TextureRect" parent="."]
-z_index = -1
+[node name="Password Box" type="Panel" parent="." groups=["MainWindow"]]
 layout_mode = 0
-offset_left = -3.0
-offset_right = 1184.57
-offset_bottom = 669.0
-texture = ExtResource("3_c1nt0")
-expand_mode = 3
-stretch_mode = 6
+offset_left = 760.0
+offset_top = 74.2818
+offset_right = 1060.0
+offset_bottom = 152.282
+theme_override_styles/panel = ExtResource("7_u3kb3")
 metadata/_edit_lock_ = true
 
-[node name="Help Window" type="Node" parent="."]
+[node name="data" type="LineEdit" parent="Password Box"]
+z_index = 1
+texture_filter = 1
+texture_repeat = 1
+layout_mode = 0
+offset_left = 6.0
+offset_top = 32.1218
+offset_right = 295.0
+offset_bottom = 68.1218
+theme = ExtResource("1_sdolp")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_placeholder_color = Color(0.560784, 0.560784, 0.560784, 1)
+theme_override_fonts/font = ExtResource("3_2h1bh")
+placeholder_text = "You didn't say the magic word!"
 
-[node name="Tutorial Box" type="Panel" parent="Help Window"]
-visible = false
-offset_left = 2.0
-offset_top = -11.0
-offset_right = 2.0
-offset_bottom = -11.0
+[node name="TextLabel" type="RichTextLabel" parent="Password Box"]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 6.0
+offset_right = 293.0
+offset_bottom = 30.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_colors/selection_color = Color(0.380392, 0.572549, 1, 1)
+theme_override_fonts/normal_font = ExtResource("3_2h1bh")
+theme_override_font_sizes/normal_font_size = 18
+text = "Encryption Password:"
+scroll_active = false
+
+[node name="WindowLabel" type="RichTextLabel" parent="Password Box"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = -21.901
+offset_right = 288.0
+offset_bottom = 8.09901
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/selection_color = Color(0.380392, 0.572549, 1, 1)
+theme_override_fonts/normal_font = ExtResource("3_2h1bh")
+theme_override_fonts/bold_font = ExtResource("8_p1c41")
+theme_override_font_sizes/normal_font_size = 24
+theme_override_font_sizes/bold_font_size = 16
+bbcode_enabled = true
+text = "[b]Ah, ah, ah![/b]"
+scroll_active = false
+
+[node name="Main Text Box" type="Panel" parent="." groups=["MainWindow"]]
+layout_mode = 0
+offset_left = 23.0
+offset_top = 41.1561
+offset_right = 735.0
+offset_bottom = 650.156
 theme_override_styles/panel = ExtResource("7_u3kb3")
+metadata/_edit_lock_ = true
 
-[node name="WindowLabel" type="RichTextLabel" parent="Help Window/Tutorial Box"]
+[node name="WindowLabel" type="RichTextLabel" parent="Main Text Box"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = -21.901
+offset_right = 288.0
+offset_bottom = 8.09898
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/selection_color = Color(0.380392, 0.572549, 1, 1)
+theme_override_fonts/normal_font = ExtResource("3_2h1bh")
+theme_override_fonts/bold_font = ExtResource("8_p1c41")
+theme_override_font_sizes/normal_font_size = 24
+theme_override_font_sizes/bold_font_size = 16
+bbcode_enabled = true
+text = "[b]DEBUTTS v#.##[/b]"
+scroll_active = false
+
+[node name="data" type="TextEdit" parent="Main Text Box"]
+z_index = 1
+layout_mode = 0
+offset_left = 2.0
+offset_right = 711.0
+offset_bottom = 609.0
+theme = ExtResource("1_sdolp")
+theme_override_colors/background_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_placeholder_color = Color(0.521569, 0.521569, 0.521569, 1)
+theme_override_fonts/font = ExtResource("3_2h1bh")
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = ExtResource("9_hr2mi")
+theme_override_styles/focus = ExtResource("11_ok4hx")
+placeholder_text = "If you're still seeing this message after you tried to open a file, it's probably because the password was wrong. It's not a password that you're using to protect your own files -- it's a password the developer used when creating the game and is specific to each game."
+wrap_mode = 1
+
+[node name="Tutorial Box" type="Panel" parent="." groups=["MainWindow"]]
+layout_mode = 0
+offset_left = 756.0
+offset_top = 349.325
+offset_right = 1046.0
+offset_bottom = 528.325
+theme_override_styles/panel = ExtResource("7_u3kb3")
+metadata/_edit_lock_ = true
+
+[node name="WindowLabel" type="RichTextLabel" parent="Tutorial Box"]
 layout_mode = 0
 offset_left = 4.0
 offset_top = -18.8896
@@ -323,7 +237,7 @@ bbcode_enabled = true
 text = "[b]Quick Tutorial[/b]"
 scroll_active = false
 
-[node name="HelpText" type="RichTextLabel" parent="Help Window/Tutorial Box"]
+[node name="HelpText" type="RichTextLabel" parent="Tutorial Box"]
 layout_mode = 0
 offset_left = 4.0
 offset_top = 9.0
@@ -343,12 +257,565 @@ text = "0) Find the right password for your game
 4) To save your edits, click on the floppy disk.  99.999% of the time, you will use the same password"
 scroll_active = false
 
-[connection signal="pressed" from="Main Window/Button Box/LoadFile" to="." method="_on_open_file_button_pressed"]
-[connection signal="pressed" from="Main Window/Button Box/SaveFile" to="." method="_on_save_file_button_pressed"]
-[connection signal="pressed" from="Main Window/Button Box/Help" to="." method="_on_help_button_pressed"]
-[connection signal="pressed" from="Main Window/Button Box/Credits" to="." method="_on_save_file_button_pressed"]
-[connection signal="meta_clicked" from="Main Window/Tutorial Box/HelpText" to="." method="_on_help_text_meta_clicked"]
-[connection signal="meta_clicked" from="Main Window/TextEdit" to="." method="clicked_link"]
+[node name="Button Box" type="Panel" parent="." groups=["MainWindow"]]
+layout_mode = 0
+offset_left = 829.0
+offset_top = 202.769
+offset_right = 1131.0
+offset_bottom = 294.769
+theme_override_styles/panel = ExtResource("7_u3kb3")
+metadata/_edit_lock_ = true
+
+[node name="LoadFile" type="Button" parent="Button Box" groups=["FileOpButtons"]]
+z_index = 1
+layout_mode = 0
+offset_left = 10.0
+offset_top = 12.0
+offset_right = 80.0
+offset_bottom = 82.0
+theme = ExtResource("1_sdolp")
+theme_type_variation = &"FlatButton"
+theme_override_fonts/font = ExtResource("3_2h1bh")
+icon = ExtResource("9_6nc74")
+expand_icon = true
+
+[node name="SaveFile" type="Button" parent="Button Box" groups=["FileOpButtons"]]
+z_index = 1
+layout_mode = 0
+offset_left = 80.0
+offset_top = 12.0
+offset_right = 150.0
+offset_bottom = 82.0
+theme = ExtResource("1_sdolp")
+theme_type_variation = &"FlatButton"
+theme_override_fonts/font = ExtResource("3_2h1bh")
+icon = ExtResource("8_756r1")
+expand_icon = true
+
+[node name="HelpBox" type="Button" parent="Button Box" groups=["ToggleWindowButtons"]]
+z_index = 1
+layout_mode = 0
+offset_left = 150.0
+offset_top = 12.0
+offset_right = 220.0
+offset_bottom = 82.0
+theme = ExtResource("1_sdolp")
+theme_type_variation = &"FlatButton"
+theme_override_fonts/font = ExtResource("3_2h1bh")
+icon = ExtResource("9_cnk8j")
+expand_icon = true
+
+[node name="CreditsBox" type="Button" parent="Button Box" groups=["ToggleWindowButtons"]]
+z_index = 1
+layout_mode = 0
+offset_left = 220.0
+offset_top = 12.0
+offset_right = 290.0
+offset_bottom = 82.0
+theme = ExtResource("1_sdolp")
+theme_type_variation = &"FlatButton"
+theme_override_fonts/font = ExtResource("3_2h1bh")
+icon = ExtResource("10_uj0mc")
+icon_alignment = 1
+expand_icon = true
+
+[node name="WindowLabel" type="RichTextLabel" parent="Button Box"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = -18.8896
+offset_right = 288.0
+offset_bottom = 11.1104
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/selection_color = Color(0.380392, 0.572549, 1, 1)
+theme_override_fonts/normal_font = ExtResource("3_2h1bh")
+theme_override_fonts/bold_font = ExtResource("8_p1c41")
+theme_override_font_sizes/normal_font_size = 24
+theme_override_font_sizes/bold_font_size = 16
+bbcode_enabled = true
+text = "[b]Toolbox[/b]"
+scroll_active = false
+
+[node name="Help Box" type="Panel" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 25.0
+offset_top = 57.217
+offset_right = 1123.0
+offset_bottom = 638.217
+theme_override_styles/panel = ExtResource("7_u3kb3")
+metadata/_edit_lock_ = true
+
+[node name="WindowLabel" type="RichTextLabel" parent="Help Box"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = -18.8896
+offset_right = 288.0
+offset_bottom = 11.1104
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/selection_color = Color(0.380392, 0.572549, 1, 1)
+theme_override_fonts/normal_font = ExtResource("3_2h1bh")
+theme_override_fonts/bold_font = ExtResource("8_p1c41")
+theme_override_font_sizes/normal_font_size = 24
+theme_override_font_sizes/bold_font_size = 16
+bbcode_enabled = true
+text = "[b]Quick Tutorial[/b]"
+scroll_active = false
+
+[node name="ReadmeBox" type="RichTextLabel" parent="Help Box"]
+layout_mode = 0
+offset_top = 2.0
+offset_right = 1097.0
+offset_bottom = 514.0
+focus_mode = 2
+theme = ExtResource("1_sdolp")
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_colors/font_selected_color = Color(0, 0, 0, 1)
+theme_override_colors/selection_color = Color(0.254902, 0.47451, 1, 1)
+theme_override_constants/line_separation = 5
+theme_override_fonts/normal_font = ExtResource("3_2h1bh")
+theme_override_fonts/bold_font = ExtResource("8_p1c41")
+theme_override_font_sizes/normal_font_size = 20
+theme_override_styles/focus = ExtResource("11_ok4hx")
+theme_override_styles/normal = ExtResource("9_hr2mi")
+bbcode_enabled = true
+text = "[font_size=45]Decryping, Encrypting, Big, Ugly Thing Transforming Saves[/font_size]
+
+[font_size=34]Welcome to DEBUTTS![/font_size]
+
+This app will decode save files from games made in the Godot save engine encrypted with its in-engine password-based function. It currently only works with games that save data in JSON format. You can then edit the save data inside the app, or in a separate text editor of your choice before encrypting the save file for use in your game.
+
+You will need to find the password your game uses for encryption on your own; this may or may not entail reverse-engineering the game or extracting the package file, and may not may not be against the license your game is distributed under. Please do your own research regarding what is permissible in your jurisdiction!
+
+
+[font_size=34]Installation[/font_size]
+
+ 1. Download from the releases page
+ 2. Extract the file in a place you can easily access it
+	 ---Mac Users: I do not have $99/year to obtain an Apple programming license. The app will be considered \"unnotarized\" on Mac and you may need to extract it in a specific folder. [url=https://docs.godotengine.org/en/stable/tutorials/export/running_on_macos.html#doc-running-on-macos]Follow the instructions from the official Godot tutorial to run the app[/url].
+ 3. Run DEBUTTS.exe (or .dmg or whatever your OS calls it)
+
+
+[font_size=34]How to use[/font_size]
+
+0. Find out the encryption password needed for your game. See the heading below for more information!
+[ol]Enter the game's password in the top box
+Click the folder icon to browser to your save file; its contents will be decrypted and displayed in the big window on the left.
+Make changes as needed
+[/ol]
+	--You can also make your changes in a separate text editor then copy-paste the contents into the window.
+4. Click the floppy disc icon and choose where to save your edited file
+5. Open your game, load the file, and see what changes ye hath wrought!
+
+
+[font_size=34]Got the password?[/font_size]
+
+\"[url=https://youtu.be/97oBT_QrJ0M]Walt sent me[/url].\" If it isn't that, you've got some sleuthin' to do! The password is almost certainly somewhere in the game data.   That game data may be encrypted, stored in a package file, stored in the game executable, or otherwise obfuscated. This means you may need to use tools available to [url=https://github.com/DmitriySalnikov/GodotPCKExplorer]unpackage[/url] or [url=https://github.com/bruvzg/gdsdecomp]decompile[/url] the game data in order to get the information you need. You might also have some luck using a hex editor and looking for features related to saving the game -- for Windows, I like [url=https://mh-nexus.de/en/hxd/]HxD[/url].
+
+Looking into any kind of questions related to obfuscating save data in Godot forums turns up, time and time again, that the engine makes it all-too-easy to un-obfuscate things. That doesn't mean it's OK, though! Do so at your own risk, legal or otherwise.
+
+[font_size=34]Where's my save file?[/font_size]
+
+Take a look at the [url=https://docs.godotengine.org/en/stable/tutorials/io/data_paths.html]\"User://\" section in the Godot Engine tutorials[/url], but to keep it short, the best guess is:
+Windows:
+	%APPDATA%\\[custom_user_dir_name]
+	%APPDATA%\\Godot\\app_userdata\\[project_name]
+	%APPDATA%\\[project_name]
+
+Mac OS:
+	~/Library/Application Support/Godot/app_userdata/[project_name]
+	~/Library/Application Support/[custom_user_dir_name]
+	~/Library/Application Support/[project_name]
+
+Linux:
+	~/.local/share/[project_name]
+	~/.local/share/[custom_user_dir_name]
+	~/.local/share/godot/app_userdata/[project_name]
+
+
+[font_size=34]Troubleshootin'[/font_size]
+
+If you open a file and you don't see it's data in the main window, you probably have the wrong password. Right now, if the app fails to open a file, it does so silently without any feedback, but that's going to be your issue 99% of the time.
+
+If you know you have the right password, or the file opens with the password but it gibberish, tweet @SushiKishi and let me know so I can look into it. It's probably an engine version issue; this app is built in Godot 4 so the encryption may have changed from older versions.
+
+If you edit your save file and can no longer open it in your game, it could be one of any number of issues. I would start by trying to open your newly-updated save file in DEBUTTS with the same password and make sure the file contents are actually being saved.  If it is being saved, check that your JSON is valid in a JSON validator like [url=https://jsonlint.com/]JSONlint[/url].
+
+It may be that the save data isn't in JSON format at all, in which case the app can open it and spit out the text, but it won't be able to save.  If you run into this scenario, please let me know on Twitter! I can't actually look into how to save this type of data if I don't have some examples to work with!
+
+If you save your file, but now it's empty when you open it in the app, well, this shouldn't happen but it might if you save without any password entered.
+
+Please always back up your save files. [s]The app will attempt to do so for you and will save it in the app's data folder specific to your OS.[/s] The developer is not responsible for any lost data.
+
+[font_size=34]To-do:[/font_size]
+
+[ol]Start a list of known save-file decryption passwords for games
+[/ol]
+
+[font_size=34]License:[/font_size]
+
+The short version of the CC By 4.0 license is summarized by the deed available at the [url=https://creativecommons.org/licenses/by/4.0/deed.en]Creative Commons website[/url], which states the following:
+	
+[ul]You are free to:
+[ul]Share — copy and redistribute the material in any medium or format for any purpose, even commercially.
+Adapt — remix, transform, and build upon the material for any purpose, even commercially.
+[/ul][/ul]
+	-The licensor cannot revoke these freedoms as long as you follow the license terms.
+[ul]Under the following terms:
+[ul]Attribution — You must give appropriate credit , provide a link to the license, and indicate if changes were made . You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use.
+No additional restrictions — You may not apply legal terms or technological measures that legally restrict others from doing anything the license permits.
+[/ul][/ul]
+
+The complete and legally-binding version of the license is under LICENSE.md.
+
+[font_size=34]Credits:[/font_size]
+
+See the CREDITS.md file.
+"
+context_menu_enabled = true
+selection_enabled = true
+script = ExtResource("13_1ivh8")
+markdown_text = "# Decryping, Encrypting, Big, Ugly Thing Transforming Saves
+
+## Welcome to DEBUTTS!
+
+This app will decode save files from games made in the Godot save engine encrypted with its in-engine password-based function. It currently only works with games that save data in JSON format. You can then edit the save data inside the app, or in a separate text editor of your choice before encrypting the save file for use in your game.
+
+You will need to find the password your game uses for encryption on your own; this may or may not entail reverse-engineering the game or extracting the package file, and may not may not be against the license your game is distributed under. Please do your own research regarding what is permissible in your jurisdiction!
+
+
+## Installation
+
+ 1. Download from the releases page
+ 2. Extract the file in a place you can easily access it
+	 ---Mac Users: I do not have $99/year to obtain an Apple programming license. The app will be considered \"unnotarized\" on Mac and you may need to extract it in a specific folder. [Follow the instructions from the official Godot tutorial to run the app](https://docs.godotengine.org/en/stable/tutorials/export/running_on_macos.html#doc-running-on-macos).
+ 3. Run DEBUTTS.exe (or .dmg or whatever your OS calls it)
+
+
+## How to use
+
+0. Find out the encryption password needed for your game. See the heading below for more information!
+1. Enter the game's password in the top box
+2. Click the folder icon to browser to your save file; its contents will be decrypted and displayed in the big window on the left.
+3. Make changes as needed
+	--You can also make your changes in a separate text editor then copy-paste the contents into the window.
+4. Click the floppy disc icon and choose where to save your edited file
+5. Open your game, load the file, and see what changes ye hath wrought!
+
+
+## Got the password?
+
+\"[Walt sent me](https://youtu.be/97oBT_QrJ0M).\" If it isn't that, you've got some sleuthin' to do! The password is almost certainly somewhere in the game data.   That game data may be encrypted, stored in a package file, stored in the game executable, or otherwise obfuscated. This means you may need to use tools available to [unpackage](https://github.com/DmitriySalnikov/GodotPCKExplorer) or [decompile](https://github.com/bruvzg/gdsdecomp) the game data in order to get the information you need. You might also have some luck using a hex editor and looking for features related to saving the game -- for Windows, I like [HxD](https://mh-nexus.de/en/hxd/).
+
+Looking into any kind of questions related to obfuscating save data in Godot forums turns up, time and time again, that the engine makes it all-too-easy to un-obfuscate things. That doesn't mean it's OK, though! Do so at your own risk, legal or otherwise.
+
+## Where's my save file?
+
+Take a look at the [\"User://\" section in the Godot Engine tutorials](https://docs.godotengine.org/en/stable/tutorials/io/data_paths.html), but to keep it short, the best guess is:
+Windows:
+	%APPDATA%\\\\[custom\\_user\\_dir\\_name]
+	%APPDATA%\\\\Godot\\\\app\\_userdata\\\\[project_name]
+	%APPDATA%\\\\[project\\_name]
+
+Mac OS:
+	~/Library/Application Support/Godot/app\\_userdata/[project\\_name]
+	~/Library/Application Support/[custom\\_user\\_dir\\_name]
+	~/Library/Application Support/[project\\_name]
+
+Linux:
+	~/.local/share/[project\\_name]
+	~/.local/share/[custom\\_user\\_dir\\_name]
+	~/.local/share/godot/app\\_userdata/[project\\_name]
+
+
+## Troubleshootin'
+
+If you open a file and you don't see it's data in the main window, you probably have the wrong password. Right now, if the app fails to open a file, it does so silently without any feedback, but that's going to be your issue 99% of the time.
+
+If you know you have the right password, or the file opens with the password but it gibberish, tweet @SushiKishi and let me know so I can look into it. It's probably an engine version issue; this app is built in Godot 4 so the encryption may have changed from older versions.
+
+If you edit your save file and can no longer open it in your game, it could be one of any number of issues. I would start by trying to open your newly-updated save file in DEBUTTS with the same password and make sure the file contents are actually being saved.  If it is being saved, check that your JSON is valid in a JSON validator like [JSONlint](https://jsonlint.com/).
+
+It may be that the save data isn't in JSON format at all, in which case the app can open it and spit out the text, but it won't be able to save.  If you run into this scenario, please let me know on Twitter! I can't actually look into how to save this type of data if I don't have some examples to work with!
+
+If you save your file, but now it's empty when you open it in the app, well, this shouldn't happen but it might if you save without any password entered.
+
+Please always back up your save files. ~~The app will attempt to do so for you and will save it in the app's data folder specific to your OS.~~ The developer is not responsible for any lost data.
+
+## To-do:
+
+1. Start a list of known save-file decryption passwords for games
+
+## License:
+
+The short version of the CC By 4.0 license is summarized by the deed available at the [Creative Commons website](https://creativecommons.org/licenses/by/4.0/deed.en), which states the following:
+	
+- You are free to:
+	- Share — copy and redistribute the material in any medium or format for any purpose, even commercially.
+	- Adapt — remix, transform, and build upon the material for any purpose, even commercially.
+	-The licensor cannot revoke these freedoms as long as you follow the license terms.
+- Under the following terms:
+	- Attribution — You must give appropriate credit , provide a link to the license, and indicate if changes were made . You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use.
+	- No additional restrictions — You may not apply legal terms or technological measures that legally restrict others from doing anything the license permits.
+
+The complete and legally-binding version of the license is under LICENSE.md.
+
+## Credits:
+
+See the CREDITS.md file.
+"
+h1 = SubResource("Resource_pew5p")
+h2 = SubResource("Resource_eh5eh")
+h3 = SubResource("Resource_e51s3")
+h4 = SubResource("Resource_5r4c3")
+h5 = SubResource("Resource_ngyse")
+h6 = SubResource("Resource_gqqah")
+
+[node name="HelpBox" type="Button" parent="Help Box" groups=["ToggleWindowButtons"]]
+texture_filter = 1
+layout_mode = 0
+offset_left = 503.0
+offset_top = 521.0
+offset_right = 641.0
+offset_bottom = 575.0
+theme = ExtResource("1_sdolp")
+theme_type_variation = &"FlatButton"
+theme_override_fonts/font = ExtResource("3_2h1bh")
+text = "Back to 
+DEBUTTS"
+icon = ExtResource("19_q58oa")
+expand_icon = true
+
+[node name="GitHub" type="Button" parent="Help Box" groups=["URLButtons"]]
+texture_filter = 1
+layout_mode = 0
+offset_left = 11.0
+offset_top = 521.0
+offset_right = 149.0
+offset_bottom = 575.0
+theme_override_fonts/font = ExtResource("3_2h1bh")
+text = "Check the
+GitHub"
+icon = ExtResource("20_nu8wj")
+expand_icon = true
+
+[node name="Twitter" type="Button" parent="Help Box" groups=["URLButtons"]]
+texture_filter = 1
+layout_mode = 0
+offset_left = 175.0
+offset_top = 521.0
+offset_right = 313.0
+offset_bottom = 575.0
+theme_override_fonts/font = ExtResource("3_2h1bh")
+text = "Developer
+Twitter"
+icon = ExtResource("21_a28jt")
+expand_icon = true
+
+[node name="JSONlint" type="Button" parent="Help Box" groups=["URLButtons"]]
+texture_filter = 1
+layout_mode = 0
+offset_left = 339.0
+offset_top = 521.0
+offset_right = 477.0
+offset_bottom = 575.0
+theme_override_fonts/font = ExtResource("3_2h1bh")
+text = "Validate w/
+JSONlint"
+icon = ExtResource("22_4semk")
+expand_icon = true
+
+[node name="Credits Box" type="Panel" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 25.0
+offset_top = 57.217
+offset_right = 1123.0
+offset_bottom = 638.217
+theme_override_styles/panel = ExtResource("7_u3kb3")
+metadata/_edit_lock_ = true
+
+[node name="WindowLabel" type="RichTextLabel" parent="Credits Box"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = -22.0114
+offset_right = 957.0
+offset_bottom = 7.98858
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/selection_color = Color(0.380392, 0.572549, 1, 1)
+theme_override_fonts/normal_font = ExtResource("3_2h1bh")
+theme_override_fonts/bold_font = ExtResource("8_p1c41")
+theme_override_font_sizes/normal_font_size = 24
+theme_override_font_sizes/bold_font_size = 16
+bbcode_enabled = true
+text = "[b]Decrypting, Encrypting, Big, Ugly Thing Transforming Saves Credits and License Information[/b]"
+scroll_active = false
+context_menu_enabled = true
+
+[node name="ReadmeBox" type="RichTextLabel" parent="Credits Box"]
+layout_mode = 0
+offset_top = 2.0
+offset_right = 1097.0
+offset_bottom = 514.0
+focus_mode = 2
+theme = ExtResource("1_sdolp")
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_colors/font_selected_color = Color(0, 0, 0, 1)
+theme_override_colors/selection_color = Color(0.588235, 0.721569, 1, 1)
+theme_override_constants/line_separation = 5
+theme_override_fonts/normal_font = ExtResource("3_2h1bh")
+theme_override_fonts/bold_font = ExtResource("8_p1c41")
+theme_override_font_sizes/normal_font_size = 20
+theme_override_styles/focus = ExtResource("11_ok4hx")
+theme_override_styles/normal = ExtResource("9_hr2mi")
+bbcode_enabled = true
+context_menu_enabled = true
+selection_enabled = true
+script = ExtResource("13_1ivh8")
+h1 = SubResource("Resource_pew5p")
+h2 = SubResource("Resource_eh5eh")
+h3 = SubResource("Resource_e51s3")
+h4 = SubResource("Resource_5r4c3")
+h5 = SubResource("Resource_ngyse")
+h6 = SubResource("Resource_gqqah")
+
+[node name="CREDITS[]md" type="Button" parent="Credits Box" groups=["CreditsButton"]]
+texture_filter = 1
+layout_mode = 0
+offset_left = 21.0
+offset_top = 521.0
+offset_right = 141.0
+offset_bottom = 575.0
+theme_override_fonts/font = ExtResource("3_2h1bh")
+theme_override_font_sizes/font_size = 20
+text = "Credits"
+expand_icon = true
+
+[node name="LICENSE[]md" type="Button" parent="Credits Box" groups=["CreditsButton"]]
+texture_filter = 1
+layout_mode = 0
+offset_left = 155.0
+offset_top = 521.0
+offset_right = 275.0
+offset_bottom = 575.0
+theme_override_fonts/font = ExtResource("3_2h1bh")
+theme_override_font_sizes/font_size = 20
+text = "DEBUTTS
+License"
+expand_icon = true
+
+[node name="licenses-cc0[]txt" type="Button" parent="Credits Box" groups=["CreditsButton"]]
+texture_filter = 1
+layout_mode = 0
+offset_left = 289.0
+offset_top = 521.0
+offset_right = 409.0
+offset_bottom = 575.0
+theme_override_fonts/font = ExtResource("3_2h1bh")
+theme_override_font_sizes/font_size = 20
+text = "CC0
+License"
+expand_icon = true
+
+[node name="licenses-cc_attribution[]txt" type="Button" parent="Credits Box" groups=["CreditsButton"]]
+texture_filter = 1
+layout_mode = 0
+offset_left = 423.0
+offset_top = 521.0
+offset_right = 543.0
+offset_bottom = 575.0
+theme_override_fonts/font = ExtResource("3_2h1bh")
+theme_override_font_sizes/font_size = 20
+text = "CC By/Attrib.
+License"
+expand_icon = true
+
+[node name="licenses-mit[]txt" type="Button" parent="Credits Box" groups=["CreditsButton"]]
+texture_filter = 1
+layout_mode = 0
+offset_left = 557.0
+offset_top = 521.0
+offset_right = 677.0
+offset_bottom = 575.0
+theme_override_fonts/font = ExtResource("3_2h1bh")
+theme_override_font_sizes/font_size = 20
+text = "MIT
+License"
+expand_icon = true
+
+[node name="licenses-irasutoya[]txt" type="Button" parent="Credits Box" groups=["CreditsButton"]]
+texture_filter = 1
+layout_mode = 0
+offset_left = 691.0
+offset_top = 521.0
+offset_right = 811.0
+offset_bottom = 575.0
+theme_override_fonts/font = ExtResource("3_2h1bh")
+theme_override_font_sizes/font_size = 20
+text = "Irasutoya
+Terms of Use"
+expand_icon = true
+
+[node name="licenses-godot_third_party[]txt" type="Button" parent="Credits Box" groups=["CreditsButton"]]
+texture_filter = 1
+layout_mode = 0
+offset_left = 825.0
+offset_top = 521.0
+offset_right = 945.0
+offset_bottom = 575.0
+theme_override_fonts/font = ExtResource("3_2h1bh")
+theme_override_font_sizes/font_size = 20
+text = "Godot
+Third Parties"
+expand_icon = true
+
+[node name="CreditsBox" type="Button" parent="Credits Box" groups=["ToggleWindowButtons"]]
+texture_filter = 1
+layout_mode = 0
+offset_left = 959.0
+offset_top = 521.0
+offset_right = 1079.0
+offset_bottom = 575.0
+theme_override_fonts/font = ExtResource("3_2h1bh")
+theme_override_font_sizes/font_size = 20
+text = "Back to
+DEBUTTS"
+expand_icon = true
+
+[node name="EasterEgg" type="RichTextLabel" parent="."]
+z_index = -1
+layout_mode = 0
+offset_left = 733.0
+offset_top = 618.345
+offset_right = 1144.0
+offset_bottom = 680.345
+theme_override_colors/default_color = Color(0, 0, 0, 0.290196)
+theme_override_fonts/normal_font = ExtResource("12_o3ekk")
+theme_override_font_sizes/normal_font_size = 15
+theme_override_styles/focus = SubResource("StyleBoxEmpty_mqowr")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_f4mfx")
+bbcode_enabled = true
+text = "[right]Unregistered Blindows v9.8
+Click [url=https://youtu.be/i_VfjH3G6Bw?t=12]here[/url] to activate or yubi in trouble!"
+scroll_active = false
+autowrap_mode = 0
+shortcut_keys_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+
+[node name="Clouds" type="TextureRect" parent="."]
+z_index = -2
+layout_mode = 0
+offset_left = -3.0
+offset_right = 1184.57
+offset_bottom = 669.0
+mouse_filter = 2
+texture = ExtResource("3_c1nt0")
+expand_mode = 3
+stretch_mode = 6
+metadata/_edit_lock_ = true
+
 [connection signal="file_selected" from="DialogBoxes/SaveFileDialog" to="." method="_on_save_file_dialog_file_selected"]
 [connection signal="file_selected" from="DialogBoxes/OpenFileDialog" to="." method="_on_open_file_dialog_file_selected"]
-[connection signal="meta_clicked" from="Help Window/Tutorial Box/HelpText" to="." method="_on_help_text_meta_clicked"]
+[connection signal="meta_clicked" from="Help Box/ReadmeBox" to="." method="clicked_link"]
+[connection signal="meta_clicked" from="Credits Box/ReadmeBox" to="." method="clicked_link"]
+[connection signal="meta_clicked" from="EasterEgg" to="." method="clicked_link"]

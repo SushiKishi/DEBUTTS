@@ -1,6 +1,4 @@
-# Decryping, Encrypting, Big, Ugly Thing Transforming Saves
-
-![DEBUTTS screenshot](ui/screenshot.png "DEBUTTS Screenshot")
+# Decrypting and Encrypting Big Ugly Thing Transforming Saves
 
 ## Welcome to DEBUTTS!
 
@@ -36,11 +34,20 @@ Looking into any kind of questions related to obfuscating save data in Godot for
 ## Where's my save file?
 
 Take a look at the ["User://" section in the Godot Engine tutorials](https://docs.godotengine.org/en/stable/tutorials/io/data_paths.html), but to keep it short, the best guess is:
-| OS | Possible locations |
-|---|---|
-| Windows | %APPDATA%\\[custom_user_dir_name]<br />  %APPDATA%\\Godot\\app_userdata\\[project_name]<br /> %APPDATA%\\[project_name] |
-| MacOS | ~/Library/Application Support/Godot/app_userdata/[project_name]<br /> ~/Library/Application Support/[custom_user_dir_name]<br /> ~/Library/Application Support/[project_name] |
-| Linux | ~/.local/share/[project_name]<br /> ~/.local/share/[custom_user_dir_name]<br /> ~/.local/share/godot/app_userdata/[project_name] |
+Windows:
+	%APPDATA%\\[custom_user_dir_name]
+	%APPDATA%\\Godot\\app_userdata\\[project_name]
+	%APPDATA%\\[project_name]
+	
+Mac OS:
+	~/Library/Application Support/Godot/app_userdata/[project_name]
+	~/Library/Application Support/[custom_user_dir_name]
+	~/Library/Application Support/[project_name]
+
+Linux:
+	~/.local/share/[project_name]
+	~/.local/share/[custom_user_dir_name]
+	~/.local/share/godot/app_userdata/[project_name]
 
 ## Troubleshootin'
 

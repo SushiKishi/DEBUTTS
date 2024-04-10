@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="Decrypting and Encrypting Big Ugly Thing Transforming Saves"
+config/name="Decryping, Encrypting, Big, Ugly Thing Transforming Saves"
 config/version="1.00"
 run/main_scene="res://control.tscn"
 config/use_custom_user_dir=true
