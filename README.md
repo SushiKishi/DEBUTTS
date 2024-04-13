@@ -4,16 +4,14 @@
 
 ## Welcome to DEBUTTS!
 
-This app will decode save files from games made in the Godot save engine encrypted with its in-engine password-based function. It currently only works with games that save data in JSON format. You can then edit the save data inside the app, or in a separate text editor of your choice before encrypting the save file for use in your game.
-
-You will need to find the password your game uses for encryption on your own; this may or may not entail reverse-engineering the game or extracting the package file, and may not may not be against the license your game is distributed under. Please do your own research regarding what is permissible in your jurisdiction!
+This app will decode save files from games made in the Godot save engine encrypted with its in-engine password-based function. You can then edit the save data inside the app, or in a separate text editor of your choice before encrypting the save file for use in your game! You will need to find the password your game uses for encryption on your own; this may or may not entail reverse-engineering the game or extracting the package file, and may not may not be against the license your game is distributed under. Please do your own research regarding what is permissible in your jurisdiction!
 
 
 ## Installation
 
  1. Download from the releases page
  2. Extract the file in a place you can easily access it
-	 ---Mac Users: I do not have $99/year to obtain an Apple programming license. The app will be considered "unnotarized" on Mac and you may need to extract it in a specific folder. [Follow the instructions from the official Godot tutorial to run the app](https://docs.godotengine.org/en/stable/tutorials/export/running_on_macos.html#doc-running-on-macos).
+	 - Mac Users: I do not have $99/year to obtain an Apple programming license. The app will be considered "unnotarized" on Mac and you may need to extract it in a specific folder. [Follow the instructions from the official Godot tutorial to run the app](https://docs.godotengine.org/en/stable/tutorials/export/running_on_macos.html#doc-running-on-macos).
  3. Run DEBUTTS.exe (or .dmg or whatever your OS calls it)
 
 
@@ -22,7 +20,7 @@ You will need to find the password your game uses for encryption on your own; th
 1. Enter the game's password in the top box
 2. Click the folder icon to browser to your save file; its contents will be decrypted and displayed in the big window on the left.
 3. Make changes as needed
-	--You can also make your changes in a separate text editor then copy-paste the contents into the window.
+	 - You can also make your changes in a separate text editor then copy-paste the contents into the window.
 4. Click the floppy disc icon and choose where to save your edited file
 5. Open your game, load the file, and see what changes ye hath wrought!
 
@@ -48,9 +46,7 @@ If you open a file and you don't see it's data in the main window, you probably 
 
 If you know you have the right password, or the file opens with the password but it gibberish, tweet @SushiKishi and let me know so I can look into it. It's probably an engine version issue; this app is built in Godot 4 so the encryption may have changed from older versions.
 
-If you edit your save file and can no longer open it in your game, it could be one of any number of issues. I would start by trying to open your newly-updated save file in DEBUTTS with the same password and make sure the file contents are actually being saved.  If it is being saved, check that your JSON is valid in a JSON validator like [JSONlint](https://jsonlint.com/).
-
-It may be that the save data isn't in JSON format at all, in which case the app can open it and spit out the text, but it won't be able to save.  If you run into this scenario, please let me know on Twitter! I can't actually look into how to save this type of data if I don't have some examples to work with!
+If you edit your save file and can no longer open it in your game, it could be one of any number of issues. I would start by trying to open your newly-updated save file in DEBUTTS with the same password and make sure the file contents are actually being saved.  If it is being saved, check that your JSON is valid in a JSON validator like [JSONlint](https://jsonlint.com/) or check your Serialization-based file to missing brackets or parenthesis -- the only web-based app I can find for this is [Balance Braces](http://balancebraces.com/), but be advised it doesn't use HTTPS protocol.
 
 If you save your file, but now it's empty when you open it in the app, well, this shouldn't happen but it might if you save without any password entered.
 
