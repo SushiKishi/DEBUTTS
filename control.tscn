@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://bivvk4ktw8skp"]
+[gd_scene load_steps=39 format=3 uid="uid://bivvk4ktw8skp"]
 
 [ext_resource type="Theme" uid="uid://bi54ign8ggomc" path="res://Themes/Classic95/Classic95.tres" id="1_sdolp"]
 [ext_resource type="Script" path="res://TheScript.gd" id="1_v3r1a"]
@@ -24,6 +24,18 @@
 [ext_resource type="Texture2D" uid="uid://dii0pj5oponpx" path="res://ui/octocatCentered.png" id="20_nu8wj"]
 [ext_resource type="Texture2D" uid="uid://cl48k3h3invgi" path="res://ui/twitter.svg" id="21_a28jt"]
 [ext_resource type="Texture2D" uid="uid://decc5ceef5asj" path="res://ui/friday-halloween-jason-svgrepo-com.svg" id="22_4semk"]
+
+[sub_resource type="FontVariation" id="FontVariation_ct37b"]
+base_font = ExtResource("3_2h1bh")
+spacing_space = 2
+
+[sub_resource type="FontVariation" id="FontVariation_hjugd"]
+base_font = ExtResource("3_2h1bh")
+spacing_space = 2
+
+[sub_resource type="FontVariation" id="FontVariation_q17ac"]
+base_font = ExtResource("8_p1c41")
+spacing_space = 2
 
 [sub_resource type="Resource" id="Resource_pew5p"]
 resource_local_to_scene = true
@@ -72,6 +84,16 @@ font_size = 0.857
 is_bold = false
 is_italic = false
 is_underlined = false
+
+[sub_resource type="FontVariation" id="FontVariation_h81ko"]
+base_font = ExtResource("3_2h1bh")
+spacing_space = 2
+
+[sub_resource type="FontVariation" id="FontVariation_t8kcr"]
+
+[sub_resource type="FontVariation" id="FontVariation_uqyum"]
+base_font = SubResource("FontVariation_t8kcr")
+spacing_space = 2
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mqowr"]
 
@@ -205,7 +227,7 @@ theme = ExtResource("1_sdolp")
 theme_override_colors/background_color = Color(1, 1, 1, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_placeholder_color = Color(0.521569, 0.521569, 0.521569, 1)
-theme_override_fonts/font = ExtResource("3_2h1bh")
+theme_override_fonts/font = SubResource("FontVariation_ct37b")
 theme_override_font_sizes/font_size = 18
 theme_override_styles/normal = ExtResource("9_hr2mi")
 theme_override_styles/focus = ExtResource("11_ok4hx")
@@ -372,8 +394,8 @@ theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_colors/font_selected_color = Color(0, 0, 0, 1)
 theme_override_colors/selection_color = Color(0.254902, 0.47451, 1, 1)
 theme_override_constants/line_separation = 5
-theme_override_fonts/normal_font = ExtResource("3_2h1bh")
-theme_override_fonts/bold_font = ExtResource("8_p1c41")
+theme_override_fonts/normal_font = SubResource("FontVariation_hjugd")
+theme_override_fonts/bold_font = SubResource("FontVariation_q17ac")
 theme_override_font_sizes/normal_font_size = 20
 theme_override_styles/focus = ExtResource("11_ok4hx")
 theme_override_styles/normal = ExtResource("9_hr2mi")
@@ -662,8 +684,8 @@ theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_colors/font_selected_color = Color(0, 0, 0, 1)
 theme_override_colors/selection_color = Color(0.588235, 0.721569, 1, 1)
 theme_override_constants/line_separation = 5
-theme_override_fonts/normal_font = ExtResource("3_2h1bh")
-theme_override_fonts/bold_font = ExtResource("8_p1c41")
+theme_override_fonts/normal_font = SubResource("FontVariation_h81ko")
+theme_override_fonts/bold_font = SubResource("FontVariation_uqyum")
 theme_override_font_sizes/normal_font_size = 20
 theme_override_styles/focus = ExtResource("11_ok4hx")
 theme_override_styles/normal = ExtResource("9_hr2mi")

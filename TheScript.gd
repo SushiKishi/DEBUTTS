@@ -19,7 +19,7 @@ extends Control
 
 func _ready():
 	
-	var version = "1.00" #dont forget to change it in project settings
+	var version = "1.00a" #dont forget to change it in project settings
 	MainBox.get_node("WindowLabel").set_text("[b]DEBUTTS v" + version + "[/b]")
 	
 	var file = FileAccess.open("res://CREDITS.md", FileAccess.READ)
