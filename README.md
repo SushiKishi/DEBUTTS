@@ -54,6 +54,7 @@ If DEBUTTS detects you're overwriting a file that already exists, it should make
 
 ## To-do:
 1. Start a list of known save-file decryption passwords for games
+2. It sure would be nice to be able to validate JSON inside the app. I know how to get it to tell you when it isn't valid, but not how to tell you where it's wrong yet.
 
 ## License:
 The short version of the CC By 4.0 license is summarized by the deed available at the [Creative Commons website](https://creativecommons.org/licenses/by/4.0/deed.en), which states the following:
